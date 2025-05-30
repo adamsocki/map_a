@@ -33,7 +33,7 @@
         <h2>Processing Results:</h2>
         <h3>Raw Analysis Data (Placeholders):</h3>
         <pre>{{ results | tojson(indent=2) }}</pre>
-        
+
         <h3>Compiled Report (Placeholder Structure):</h3>
         {% if report_summary and report_summary.sections %}
             <h4>{{ report_summary.title | default("Generated Report") }}</h4>

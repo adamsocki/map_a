@@ -59,7 +59,7 @@ def compile_planning_report(analysis_results: Dict) -> str:
     Uses an LLM to synthesize information and generate a coherent report.
 
     The report could be structured as follows:
-    1.  **Introduction**: 
+    1.  **Introduction**:
         *   Overview of the project (derived from project_description analysis).
         *   Purpose and scope of the report.
     2.  **Existing Conditions Analysis**:
@@ -109,7 +109,7 @@ def compile_planning_report(analysis_results: Dict) -> str:
     # report_content = llm_client.generate_text(prompt)
 
     print(f"LLM Service: Compiling planning report with results: {str(analysis_results)[:100]}...")
-    
+
     # Placeholder for the structured report content
     structured_report_placeholder = {
         "title": "Urban Planning Report (Placeholder)",

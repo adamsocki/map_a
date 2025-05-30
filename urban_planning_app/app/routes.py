@@ -23,7 +23,7 @@ def index():
         if project_description:
             # 3. Calling placeholder functions in llm_service.py
             results['project_analysis'] = llm_service.analyze_project_description(project_description)
-        
+
         if location_data:
             results['location_processing'] = llm_service.process_location_data(location_data)
 
@@ -32,7 +32,7 @@ def index():
             # For now, we'll just pass a representation (e.g., filename or mock object)
             # to the service layer. For this example, passing the FileStorage object.
             results['policy_summary'] = llm_service.summarize_policy_documents([policy_documents_file])
-        
+
         if community_feedback:
             results['feedback_interpretation'] = llm_service.interpret_community_feedback(community_feedback)
 
