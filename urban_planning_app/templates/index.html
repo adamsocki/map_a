@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Planning Data Input</title>
+</head>
+<body>
+    <h1>Urban Planning Data Input</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <div>
+            <label for="project_description">Project Description:</label><br>
+            <textarea id="project_description" name="project_description" rows="5" cols="50"></textarea><br><br>
+        </div>
+        <div>
+            <label for="location_data">Location Data (e.g., coordinates, address):</label><br>
+            <input type="text" id="location_data" name="location_data" size="50"><br><br>
+        </div>
+        <div>
+            <label for="policy_documents">Policy Documents (e.g., zoning laws, environmental reports):</label><br>
+            <input type="file" id="policy_documents" name="policy_documents"><br><br>
+        </div>
+        <div>
+            <label for="community_feedback">Community Feedback:</label><br>
+            <textarea id="community_feedback" name="community_feedback" rows="5" cols="50"></textarea><br><br>
+        </div>
+        <div>
+            <input type="submit" value="Submit Data">
+        </div>
+    </form>
+
+    {% if form_submitted %}
+        <h2>Processing Results:</h2>
+        <h3>Raw Analysis Data (Placeholders):</h3>
+        <pre>{{ results | tojson(indent=2) }}</pre>
+        
+        <h3>Compiled Report (Placeholder Structure):</h3>
+        {% if report_summary and report_summary.sections %}
+            <h4>{{ report_summary.title | default("Generated Report") }}</h4>
+            {% for section in report_summary.sections %}
+                <h5>{{ section.title }}</h5>
+                <p>{{ section.content }}</p>
+            {% endfor %}
+        {% elif report_summary %}
+            {# Fallback if report_summary is a simple string (older version) #}
+            <p>{{ report_summary }}</p>
+        {% else %}
+            <p>No report summary available.</p>
+        {% endif %}
+    {% endif %}
+</body>
+</html>
